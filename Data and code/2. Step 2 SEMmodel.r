@@ -1,7 +1,7 @@
 #This is a R code.
 set.seed(1234)
 
-#Set working directory
+#Set the working directory
 setwd('C:/Users/linanqiao/Documents/GitHub/Tibet-Water-Energy-SEM/Data and code')
 remove(list=ls())
 
