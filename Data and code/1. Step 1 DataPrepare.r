@@ -77,9 +77,27 @@ plot(bound)
     par(mfrow=c(2,1))
 LAI=raster('LAI2000-2020Mean.tif')*0.001
 plot(LAI)
+LAIGRASS=LAI*GRASS
+plot(LAIGRASS)
+writeRaster(LAIGRASS,'GrassLAI2000-2020mean.tiff',formate="GTIFF",overwrite=T)
+LAIGRASS[LAIGRASS>1.54]=3
+LAIGRASS[LAIGRASS<1.04]=2
+LAIGRASS[LAIGRASS<1.54]=1
+plot(LAIGRASS)
+writeRaster(LAIGRASS,'LAI2forDecoupling.tiff',formate="GTIFF",overwrite=T)
+#This is the Fig. 2d
 
 VCI=raster('VCI2000-2020Mean.tif')
 plot(VCI)
+VCIGRASS=VCI*GRASS
+plot(VCIGRASS)
+writeRaster(VCIGRASS,'GrassVCI2000-2020mean.tiff',formate="GTIFF",overwrite=T)
+VCIGRASS[VCIGRASS>0.55]=3
+VCIGRASS[VCIGRASS<0.42]=2
+VCIGRASS[VCIGRASS<0.55]=1
+plot(VCIGRASS)
+writeRaster(VCIGRASS,'VCI2froDecoupling.tiff',formate="GTIFF",overwrite=T)
+#This is the Fig. 2c
 
       TrendSig=raster('VciChangeSig1982-2020.tif')*GRASS     #145 groups
           plot(TrendSig)
