@@ -24,7 +24,7 @@ plot(bound)
     GRASS=LULC
     
     plot(GRASS)
-    #writeRaster(GRASS,'GRASS.tif',format='GTiff',overwrite=TRUE)
+    writeRaster(GRASS,'GRASS.tif',format='GTiff',overwrite=TRUE)
 
 #Data of Fig. 1a: Changes in VCI for the grassland during 1982 to 2020
     VCItrend=raster('VciChangeRate1982-2020.tif')
